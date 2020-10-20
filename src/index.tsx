@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './containers/App/App';
+// import App from './containers/App/App';
 import { ApolloProvider } from '@apollo/client';
 import * as serviceWorker from './serviceWorker';
 import userClient from './graphql/Client';
-import { SocketContext } from './socket-context';
+// import { SocketContext } from './socket-context';
 import Landing from '../src/components/Landing/Landing';
 
 ReactDOM.render(

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
-import logo from '../../assets/swift-logo.png';
+import logo from '../../assets/swift-logo-big.png';
 import './Landing.scss';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../graphql/Mutations';
@@ -10,7 +10,6 @@ const apiId =
   '770694473973-nsm7s39sp1tvm3jpg6d3pk7ln309gvbr.apps.googleusercontent.com';
 
 const Landing = (): JSX.Element => {
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [userName, setUserName] = useState<String>('');
   const [createUser, newUser] = useMutation(CREATE_USER);
   const history = useHistory();
