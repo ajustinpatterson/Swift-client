@@ -37,19 +37,18 @@ const Landing = (): JSX.Element => {
       console.log(response);
       console.log(response.profileObj.email)
       if (response) {
-        setUserName(response.profileObj.name);
-        createUser({
-          variables: {
-            userDetails: {
-              email: response.profileObj.email,
-              familyName: response.profileObj.familyName,
-              givenName: response.profileObj.givenName,
-              googleId: response.profileObj.googleId,
-              imageUrl: response.profileObj.imageUrl,
-              name: response.profileObj.name,
-            }
-          },
-        });
+        // createUser({
+        //   variables: {
+        //     userDetails: {
+        //       email: response.profileObj.email,
+        //       familyName: response.profileObj.familyName,
+        //       givenName: response.profileObj.givenName,
+        //       googleId: response.profileObj.googleId,
+        //       imageUrl: response.profileObj.imageUrl,
+        //       name: response.profileObj.name,
+        //     }
+        //   },
+        // });
 
       }
     } catch (err) {
