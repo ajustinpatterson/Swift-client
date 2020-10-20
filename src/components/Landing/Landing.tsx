@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import logo from '../../assets/swift-logo-big.png';
 import './Landing.scss';
-import { useMutation } from '@apollo/client';
-import { CREATE_USER } from '../../graphql/Mutations';
+// import { useMutation } from '@apollo/client';
+// import { CREATE_USER } from '../../graphql/Mutations';
 
 const apiId =
   '770694473973-nsm7s39sp1tvm3jpg6d3pk7ln309gvbr.apps.googleusercontent.com';
