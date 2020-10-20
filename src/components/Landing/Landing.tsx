@@ -10,8 +10,8 @@ const apiId =
   '770694473973-nsm7s39sp1tvm3jpg6d3pk7ln309gvbr.apps.googleusercontent.com';
 
 const Landing = (): JSX.Element => {
-  const [userName, setUserName] = useState<String>('');
-  const [createUser, newUser] = useMutation(CREATE_USER);
+  // const [userName, setUserName] = useState<String>('');
+  // const [createUser, newUser] = useMutation(CREATE_USER);
   const history = useHistory();
   const active = localStorage.getItem('loggedIn');
   const [roomId, setRoomId] = useState<string>('');
