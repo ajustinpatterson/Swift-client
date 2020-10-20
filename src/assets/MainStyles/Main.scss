@@ -1,0 +1,41 @@
+@mixin vidBtn {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 60px;
+}
+
+@mixin vidBtnHov {
+  @include vidBtn();
+  background-color: #cfcfcf;
+}
+
+@mixin respVidBtn {
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 70px;
+}
+
+@mixin respVidBtnHov {
+  @include respVidBtn();
+  background-color: #cfcfcf;
+}
+
+@mixin miniVidBtn {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 60px;
+}
+
+@mixin miniVidBtnHov {
+  @include respVidBtn();
+  background-color: #cfcfcf;
+}
