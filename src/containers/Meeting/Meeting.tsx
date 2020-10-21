@@ -71,21 +71,21 @@ const Meeting = () => {
 
   //****************** FUNCTIONS DECLARATION ************************/
   function connectToNewUser(userId: string, otherPeerId: string, stream: MediaStream, peer: any) {
-    console.log('Other user peerId ->', otherPeerId);
+    console.log('Other user peerId ->', otherPeerId); // ****** yes console.log
     peer.connect(otherPeerId);
     // call is emitted when a remote peer attempts to call you.
     const mediaConnection = peer.call(otherPeerId, stream);
-    console.log('mediaConnection', mediaConnection)
+    console.log('mediaConnection', mediaConnection) // ****** no csonsole.log
     mediaConnection.on('stream', (otherUserStream: any) => {
       // it gets called two times for each type of track audio and video
       // console.log('other stream', otherUserStream);
-      console.log('connectToNewUser -> mediaConnection ')
+      console.log('connectToNewUser -> mediaConnection ') // ****** no csonsole.log
       addSecondVideoStream(otherUserStream)
     })
   };
   function addSecondVideoStream(stream: MediaStream) {
     setHasOtherJoined(true);
-    console.log('this is a stream from addSecondaryVideoStream:' , stream)
+    console.log('this is a stream from addSecondaryVideoStream:' , stream) // ******* no csonsole.log
     setStreams([...streams, stream]);
     // ...
   };
@@ -264,7 +264,8 @@ const Meeting = () => {
           // open is emitted when a new data connection is established from a remote peer.
           // the peerID is automatically generated here with the uuid lib
           // whenever a new user connects it will connect to him through the peerId
-          socket.on('user-connected', (userId: string, otherPeerId: string) => {
+          socket.on('user-connected', (userId: string, otherPeerId: string, stream: any, peer: any) => {
+            console.log('I am triggered by the socet.on(user-connected)');
             connectToNewUser(userId, otherPeerId, stream, peer);
           });
           // when the peer make a call
