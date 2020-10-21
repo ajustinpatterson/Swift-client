@@ -18,6 +18,7 @@ function App({ socket }: props) {
   const [sharing, setSharing] = useState(false);
   const [videoToggle, setVideoToggle] = useState(false);
   const [recording, setRecording] = useState(false);
+  const [mute, setMute] = useState(false);
   // const MediaRecorder: any = null;
   const mediaDevices = navigator.mediaDevices as any;
   let chunks: any[] = [];
@@ -92,15 +93,6 @@ function App({ socket }: props) {
     setVideoToggle(false);
   }
   // SCREEN SHARING
-  function stopScreenSharing() {
-    navigator.mediaDevices.getUserMedia(constraints)
-      .then((stream) => {
-        // (myVideoRef.current! as any).video.srcObject = stream;
-        // stream.getVideoTracks()[0].enabled = !stream.getVideoTracks()[0].enabled
-        displayMyStream(stream);
-        console.log(stream.getVideoTracks())
-      })
-  }
   async function screenSharing(options: object) {
     let captureStream = null;
     try {
@@ -118,7 +110,18 @@ function App({ socket }: props) {
     }
     return captureStream;
   }
-  // // RECORD VIDEO/AUDIO ON/OFF
+
+  function stopScreenSharing() {
+    navigator.mediaDevices.getUserMedia(constraints)
+      .then((stream) => {
+        // (myVideoRef.current! as any).video.srcObject = stream;
+        // stream.getVideoTracks()[0].enabled = !stream.getVideoTracks()[0].enabled
+        displayMyStream(stream);
+        console.log(stream.getVideoTracks())
+      })
+  }
+
+  // SCREEN RECORDING
   // function handleRecording() {
   //   setVideoToggle(!videoToggle);
   //   videoToggle
@@ -170,16 +173,57 @@ function App({ socket }: props) {
     setRecording(false);
     screenSharing(stream);
   }
+
   // AUDIO ON/OFF
-  function handleAudio(stream: any) {
-    console.log(stream.getAudioTracks())
-    const isEnabled = stream.getAudioTracks()[0].enabled
-    if (isEnabled) {
-      stream.getAudioTracks()[0].enabled = false
-    } else {
-      stream.getAudioTracks()[0].enabled = true
-    }
-  }
+  function muteUnmute(mute: boolean) {
+
+console.log(mute)
+
+
+    navigator.mediaDevices.getUserMedia({audio: true, video: true})
+    .then(stream => {
+
+      const isEnabled = stream.getAudioTracks()[0].enabled
+
+      if (!mute) {
+
+          setMute(true)
+          stream.getAudioTracks()[0].enabled = false
+          console.log('enabled', stream.getAudioTracks()[0].enabled)
+
+
+      } else {
+
+          setMute(false)
+
+          stream.getAudioTracks()[0].enabled = true
+          console.log('enabled', stream.getAudioTracks()[0].enabled)
+
+      }
+
+
+      // if (!mute) {
+      //   navigator.mediaDevices.getUserMedia({audio: true, video: true})
+      //   .then(stream => {
+      //     setMute(true)
+      //     stream.getAudioTracks()[0].enabled = false
+      //     console.log('enabled', stream.getAudioTracks()[0].enabled)
+
+      //   })
+      // } else {
+      //   navigator.mediaDevices.getUserMedia({audio: true, video: true})
+      //   .then(stream => {
+      //     setMute(false)
+
+      //     stream.getAudioTracks()[0].enabled = true
+      //     console.log('enabled', stream.getAudioTracks()[0].enabled)
+      //   })
+      // }
+  })
+}
+
+
+
   //****************** USE EFFECT ************************/
   useEffect(() => {
     socket.on('connect', () => {
@@ -270,12 +314,12 @@ function App({ socket }: props) {
       </div>
       <button className="btn btn-primary btn-sm de" onClick={screenSharing}>Share Screen</button>
       {/* <button className="btn btn-primary btn-sm de" >Video ON</button> */}
-      <button className="btn btn-primary btn-sm de" >Audio</button>
+      <button className="btn btn-primary btn-sm de" onClick={handleVideoToggle}>{videoToggle ? 'Stop video' : 'Start video'}</button>
       {/* <button className="btn btn-primary btn-sm de" onClick={handleStart}>Start rec</button> */}
       <video src=""></video>
       {/* <button className="btn btn-primary btn-sm de" onClick={handleShare}>Share Screen</button>
       <button className="btn btn-primary btn-sm de" onClick={handleShare}>Share Screen</button> */}
-      <button className="btn btn-primary btn-sm de" onClick={handleVideoToggle}>{videoToggle ? 'Stop video' : 'Start video'}</button>
+      <button className="btn btn-primary btn-sm de" onClick={() => muteUnmute(mute)}>{mute ? 'UnMute' : 'Mute'}</button>
       {/* <button className="btn btn-primary btn-sm de" onClick={handleRecording}>{recording ? 'Stop Recording' : 'Start Recording'}</button> */}
       {/* <a href="http://localhost:4000" target="_blank">
         click here
