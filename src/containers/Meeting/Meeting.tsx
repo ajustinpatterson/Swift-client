@@ -231,9 +231,8 @@ const Meeting = () => {
           displayMyStream(stream);
           console.log('constraints: ', constraints);
           const peer = new Peer(undefined, {
-            path: 'swift-peer-server.herokuapp.com',
+            host: 'swift-peer-server.herokuapp.com',
             port: 80
-
           });
           console.log('peer', peer);
           console.log('my stream getAudotracks', stream.getAudioTracks())
