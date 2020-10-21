@@ -74,7 +74,7 @@ const Meeting = () => {
   console.log('streams array', streams)
 
   function connectToNewUser(userId: string, otherPeerId: string, stream: MediaStream, peer: any) {
-
+    console.log('this is the peer', peer)
     console.log('Other user peerId ->', otherPeerId); // ****** yes console.log
     console.log('I am the peer inside the func connectToNewUser')
     peer.connect(otherPeerId);
