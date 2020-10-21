@@ -83,6 +83,7 @@ const Meeting = () => {
   };
   function addSecondVideoStream(stream: MediaStream) {
     setHasOtherJoined(true);
+    console.log('this is a stream from addSecondaryVideoStream:' , stream)
     setStreams([...streams, stream]);
     // ...
   };
@@ -300,7 +301,7 @@ const Meeting = () => {
       <div className="cntrlbar">
         <div className="container">
           <Webcam ref={myVideoRef} />
-          {console.log('othervideo REF ////////////////', otherVideoRef)}
+          {console.log('My video Ref ////////////////', myVideoRef)}
           {
             streams.map((stream) => <WebcamComponent videoRef={stream} />)
           }
