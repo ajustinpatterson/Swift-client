@@ -70,7 +70,11 @@ const Meeting = () => {
 
 
   //****************** FUNCTIONS DECLARATION ************************/
+
+  console.log('streams array', streams)
+
   function connectToNewUser(userId: string, otherPeerId: string, stream: MediaStream, peer: any) {
+
     console.log('Other user peerId ->', otherPeerId); // ****** yes console.log
     console.log('I am the peer inside the func connectToNewUser')
     peer.connect(otherPeerId);
@@ -88,7 +92,6 @@ const Meeting = () => {
     setHasOtherJoined(true);
     console.log('this is a stream from addSecondaryVideoStream:' , stream) // ******* no csonsole.log
     setStreams([...streams, stream]);
-    console.log('streams array', streams)
 
     // ...
   };
