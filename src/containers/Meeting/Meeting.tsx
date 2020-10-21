@@ -75,6 +75,7 @@ const Meeting = () => {
     peer.connect(otherPeerId);
     // call is emitted when a remote peer attempts to call you.
     const mediaConnection = peer.call(otherPeerId, stream);
+    console.log('mediaConnection', mediaConnection)
     mediaConnection.on('stream', (otherUserStream: any) => {
       // it gets called two times for each type of track audio and video
       // console.log('other stream', otherUserStream);
