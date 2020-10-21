@@ -72,6 +72,7 @@ const Meeting = () => {
   //****************** FUNCTIONS DECLARATION ************************/
   function connectToNewUser(userId: string, otherPeerId: string, stream: MediaStream, peer: any) {
     console.log('Other user peerId ->', otherPeerId); // ****** yes console.log
+    console.log('I am the peer inside the func connectToNewUser')
     peer.connect(otherPeerId);
     // call is emitted when a remote peer attempts to call you.
     const mediaConnection = peer.call(otherPeerId, stream);
@@ -264,7 +265,7 @@ const Meeting = () => {
           // open is emitted when a new data connection is established from a remote peer.
           // the peerID is automatically generated here with the uuid lib
           // whenever a new user connects it will connect to him through the peerId
-          socket.on('user-connected', (userId: string, otherPeerId: string, stream: any, peer: any) => {
+          socket.on('user-connected', (userId: string, otherPeerId: string) => {
             console.log('I am triggered by the socet.on(user-connected)');
             connectToNewUser(userId, otherPeerId, stream, peer);
           });
