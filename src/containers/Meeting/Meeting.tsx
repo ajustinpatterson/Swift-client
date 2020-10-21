@@ -230,10 +230,14 @@ const Meeting = () => {
           // }
           displayMyStream(stream);
           console.log('constraints: ', constraints);
-          const peer = new Peer(undefined, {
-            host: 'swift-peer-server.herokuapp.com',
-            port: 80
-          });
+          // const peer = new Peer(undefined, {
+          //   host: 'swift-peer-server.herokuapp.com',
+          //   port: 80
+          // });
+
+          let peer = new Peer(undefined, {host:'peerjs-server.herokuapp.com', secure:true, port:443})
+
+
           console.log('peer', peer);
           console.log('my stream getAudotracks', stream.getAudioTracks())
           console.log('my stream getTrackById', stream.getTrackById('65d7ee52-b0cc-405f-8b83-a6ae30661a8d'))
