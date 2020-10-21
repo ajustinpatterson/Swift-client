@@ -9,9 +9,6 @@ interface props {
   socket: any;
 }
 const Meeting = () => {
-
-
-
   //****************** VARIABLES ************************/
   const myVideoRef = useRef(null);
   const socket  = useContext(SocketContext)
@@ -234,9 +231,7 @@ const Meeting = () => {
           displayMyStream(stream);
           console.log('constraints: ', constraints);
           const peer = new Peer(undefined, {
-            host: 'localhost',
-            port: 4000,
-            path: '/',
+            path: 'https://fathomless-eyrie-92787.herokuapp.com/meeting',
           });
           console.log('peer', peer);
           console.log('my stream getAudotracks', stream.getAudioTracks())
