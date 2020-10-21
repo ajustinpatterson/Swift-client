@@ -6,5 +6,5 @@ export const WebcamComponent = ({ videoRef }: any) => {
 
   console.log(webcamRef.current);
 
-  return <Webcam />;
+  return <Webcam ref={webcamRef}/>;
 };
