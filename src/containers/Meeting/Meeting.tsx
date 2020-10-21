@@ -89,9 +89,9 @@ const Meeting = () => {
     })
   };
   function addSecondVideoStream(stream: MediaStream) {
+    setStreams([...streams, stream]);
     setHasOtherJoined(true);
     console.log('this is a stream from addSecondaryVideoStream:' , stream) // ******* no csonsole.log
-    setStreams([...streams, stream]);
 
     // ...
   };
@@ -317,7 +317,6 @@ const Meeting = () => {
         </div>
         <button className="btn btn-primary btn-sm de" onClick={screenSharing}>Share Screen</button>
         <button className="btn btn-primary btn-sm de" onClick={handleVideoToggle}>{videoToggle ? 'Stop video' : 'Start video'}</button>
-        <video src=""></video>
         <button className="btn btn-primary btn-sm de" onClick={() => muteUnmute(mute)}>{mute ? 'UnMute' : 'Mute'}</button>
 
 
