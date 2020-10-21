@@ -231,8 +231,7 @@ const Meeting = () => {
           displayMyStream(stream);
           console.log('constraints: ', constraints);
           const peer = new Peer(undefined, {
-            path: 'https://swift-peer-server.herokuapp.com',
-            secure: true,
+            path: 'swift-peer-server.herokuapp.com',
             port: 80
 
           });
