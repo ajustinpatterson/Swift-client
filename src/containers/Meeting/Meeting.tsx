@@ -78,6 +78,7 @@ const Meeting = () => {
     mediaConnection.on('stream', (otherUserStream: any) => {
       // it gets called two times for each type of track audio and video
       // console.log('other stream', otherUserStream);
+      console.log('connectToNewUser -> mediaConnection ')
       addSecondVideoStream(otherUserStream)
     })
   };
