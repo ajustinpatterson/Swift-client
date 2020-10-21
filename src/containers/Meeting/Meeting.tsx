@@ -88,7 +88,7 @@ const Meeting = () => {
     setHasOtherJoined(true);
     console.log('this is a stream from addSecondaryVideoStream:' , stream) // ******* no csonsole.log
     setStreams([...streams, stream]);
-    console.log('streams array')
+    console.log('streams array', streams)
 
     // ...
   };
