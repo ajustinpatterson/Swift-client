@@ -88,8 +88,8 @@ const Meeting = () => {
       addSecondVideoStream(otherUserStream)
     })
   };
-  function addSecondVideoStream(stream: MediaStream) {
-    setStreams([...streams, stream]);
+  async function addSecondVideoStream(stream: MediaStream) {
+    await setStreams([...streams, stream])
     setHasOtherJoined(true);
     console.log('this is a stream from addSecondaryVideoStream:' , stream) // ******* no csonsole.log
 
