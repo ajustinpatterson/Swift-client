@@ -71,7 +71,7 @@ const Meeting = () => {
 
   //****************** FUNCTIONS DECLARATION ************************/
 
-  console.log('streams array', streams)
+    console.log('streams array', streams)
 
   function connectToNewUser(userId: string, otherPeerId: string, stream: MediaStream, peer: any) {
     console.log('this is the peer', peer)
@@ -88,8 +88,8 @@ const Meeting = () => {
       addSecondVideoStream(otherUserStream)
     })
   };
-  async function addSecondVideoStream(stream: MediaStream) {
-    await setStreams([...streams, stream])
+   function addSecondVideoStream(stream: MediaStream) {
+    setStreams([...streams, stream])
     setHasOtherJoined(true);
     console.log('this is a stream from addSecondaryVideoStream:' , stream) // ******* no csonsole.log
 
@@ -301,7 +301,7 @@ const Meeting = () => {
         })
         ;
     });
-  }, []);
+  }, [streams]);
 
   //****************** RENDERING ************************/
 
