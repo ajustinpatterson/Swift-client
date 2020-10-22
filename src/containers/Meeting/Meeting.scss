@@ -4,43 +4,86 @@ $break-small: 420px;
 $break-med: 850px;
 $break-large: 1200px;
 
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button:focus {
+  outline: none
+}
+
+.mtngcontainer {
+  text-align: center;
+}
+
 @media screen and (max-width: $break-small) {
-  .mtngcontainer {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    background-color: gray;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
+
 
   .cntrlbar {
-    align-self: flex-end;
+    position: fixed;
+    bottom: 0;
     width: 100vw;
-    background-color: #fff;
   }
 
   .btn-on {
     @include Main.miniVidBtn();
   }
-  .btn-on:hover {
-    background-color: #cfcfcf;
-  }
+
   .btn-off {
     @include Main.miniVidBtn();
   }
-  .btn-off:hover {
+  .btn-off:hover,  {
     background-color: #13b98b;
   }
+
+  .share-off:hover {
+    background-color: #cfcfcf
+  }
+
   .phnbtn {
     @include Main.miniVidBtn();
   }
   .phnbtn:hover {
     background-color: red;
-    opacity: 0.5;
   }
 
   .share-on {
@@ -53,50 +96,39 @@ $break-large: 1200px;
   }
   .share-off {
     @include Main.miniVidBtn();
-    opacity: 0.5;
   }
-  .share-off:hover {
-    background-color: gray;
-  }
+  // .share-off:hover {
+  //   background-color: gray;
+  // }
 }
 
 @media screen and (min-width: $break-small) {
-  .mtngcontainer {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    background-color: gray;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
 
   .cntrlbar {
-    align-self: flex-end;
+    position: fixed;
+    bottom: 0;
     width: 100vw;
-    background-color: #ffffff00;
   }
 
   .btn-on {
     @include Main.respVidBtn();
   }
-  .btn-on:hover {
-    background-color: #cfcfcf;
-  }
+
   .btn-off {
     @include Main.respVidBtn();
   }
-  .btn-off:hover {
-    background-color: #cfcfcf;
+  .btn-off:hover,  {
+    background-color: #13b98b;
+  }
+
+  .share-off:hover {
+    background-color: #cfcfcf
   }
   .phnbtn {
     @include Main.respVidBtn();
   }
   .phnbtn:hover {
     background-color: red;
-    opacity: 0.5;
   }
 
   .share-on {
@@ -108,36 +140,26 @@ $break-large: 1200px;
   }
   .share-off {
     @include Main.respVidBtn();
-    opacity: 0.5;
   }
-  .share-off:hover {
-    background-color: gray;
-  }
+  // .share-off:hover {
+  //   background-color: gray;
+  // }
 }
+
 @media screen and (min-width: $break-large) {
-  .mtngcontainer {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    background-color: gray;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
 
   .cntrlbar {
-    align-self: flex-end;
+    position: fixed;
+    bottom: 0;
     width: 100vw;
-    background-color: #fff;
   }
 
   .btn-on {
     @include Main.vidBtn();
   }
-  .btn-on:hover {
-    background-color: #cfcfcf;
+
+  .share-off:hover {
+    background-color: #cfcfcf
   }
   .btn-off {
     @include Main.vidBtn();
@@ -150,7 +172,6 @@ $break-large: 1200px;
   }
   .phnbtn:hover {
     background-color: red;
-    opacity: 0.5;
   }
 
   .share-on {
@@ -162,9 +183,55 @@ $break-large: 1200px;
   // }
   .share-off {
     @include Main.respVidBtn();
-    opacity: 0.5;
   }
-  .share-off:hover {
-    background-color: gray;
-  }
+  // .share-off:hover {
+  //   background-color: gray;
+  // }
+}
+
+
+// video:nth-child(1) {
+//   max-width: 480px;
+//   max-height: 270px;
+//   min-width: 320px;
+//   min-height: 180px;
+// }
+
+// video:nth-child(2) {
+//   max-width: 640px;
+//   max-height: 360px;
+//   min-width: 480px;
+//   min-height: 270px;
+// }
+
+
+html {
+  height: 100vh;
+}
+
+video {
+  box-shadow: 4px 4px 7px 0px rgba(0, 0, 0, 0.7)
+}
+
+
+.my-video-container, .others-video-container {
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.my-video-container video {
+  max-width: 640px;
+  max-height: 360px;
+  min-width: 480px;
+  min-height: 270px;
+}
+
+.others-video-container video {
+  max-width: 480px;
+  max-height: 270px;
+  min-width: 320px;
+  min-height: 180px;
 }
