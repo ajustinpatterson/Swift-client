@@ -15,7 +15,7 @@ const Meeting = () => {
   const otherVideoRef = useRef(null);
   const [hasOtherJoined, setHasOtherJoined] = useState<boolean>(false);
   const [streams, setStreams] = useState<MediaStream[]>([]);
-  const [tests, seTests] = useState<boolean>(false);
+  // const [tests, seTests] = useState<boolean>(false);
 
   const [sharing, setSharing] = useState<boolean>(false);
   const [videoToggle, setVideoToggle] = useState<boolean>(true);
@@ -209,23 +209,19 @@ const Meeting = () => {
       })
   }
 
-  useEffect(() => {
-    seTests((prev) => {
-      return !prev
-    })
+  // useEffect(() => {
+  //   seTests((prev) => {
+  //     return !prev
+  //   })
 
-  }, [streams])
+  // }, [streams])
 
   //****************** USE EFFECT ************************/
   useEffect(() => {
     socket.on('connect', () => {
       navigator.mediaDevices
         .getUserMedia(
-          // constraints
-          {
-            video: true,
-            audio: true
-          }
+          constraints
         )
         .then((stream) => {
           console.log('recordingr', recording)
