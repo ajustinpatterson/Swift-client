@@ -225,9 +225,9 @@ const Meeting = () => {
     socket.on('connect', () => {
       navigator.mediaDevices
         .getUserMedia(
-          constraints
-          // {video: true,
-          // audio: true}
+          // constraints
+          {video: true,
+          audio: true}
         )
         .then((stream) => {
           console.log('recordingr', recording)
