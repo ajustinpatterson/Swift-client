@@ -6,12 +6,10 @@
   border: 1px solid gray;
   border-radius: 60px;
 }
-
 @mixin vidBtnHov {
   @include vidBtn();
   background-color: #cfcfcf;
 }
-
 @mixin respVidBtn {
   width: 70px;
   height: 70px;
@@ -20,12 +18,10 @@
   border: 1px solid gray;
   border-radius: 70px;
 }
-
 @mixin respVidBtnHov {
   @include respVidBtn();
   background-color: #cfcfcf;
 }
-
 @mixin miniVidBtn {
   width: 60px;
   height: 60px;
@@ -34,8 +30,19 @@
   border: 1px solid gray;
   border-radius: 60px;
 }
-
 @mixin miniVidBtnHov {
   @include respVidBtn();
   background-color: #cfcfcf;
+}
+@mixin button {
+  padding: 10px;
+  color: #4b4b4b;
+  background-color: white;
+  opacity: 0.3;
+  border: 1px solid blue;
+  border-radius: 16px;
+}
+@mixin text-field {
+  border: 1px solid lightgray;
+  border-radius: 3px;
 }
