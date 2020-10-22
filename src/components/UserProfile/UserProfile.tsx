@@ -6,9 +6,13 @@ import './UserProfile.scss';
 export default function UserProfile(): JSX.Element {
   const { data, loading, error } = useQuery(GET_USERS);
   const history = useHistory();
-  const handleClick = () => {
-    history.push('/usersettings');
-  };
+
+
+  function handleSettings (){
+    history.push('/userSettings')
+  }
+
+
   return (
     <div className="container">
       <div className="title">Hello, {data?.getUsers[0]?.name}</div>
@@ -21,9 +25,10 @@ export default function UserProfile(): JSX.Element {
           <div>Email: {data?.getUsers[0]?.email}</div>
           <div>{data?.getUsers[0]?.bio}</div>
           <div>{data?.getUsers[0]?.status}</div>
-          <button className="btn" onClick={handleClick}>
+          <button className="btn" onClick={handleSettings}>
             Edit profile
           </button>
+
         </div>
       </div>
     </div>

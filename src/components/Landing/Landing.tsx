@@ -51,6 +51,9 @@ const Landing = (): JSX.Element => {
         });
 
       }
+      
+      history.push('/meeting');
+
     } catch (err) {
       console.log(err);
     }

@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import {useHistory} from 'react-router-dom';
 import './Meeting.scss';
 import Peer from 'peerjs';
 import Webcam from 'react-webcam';
 import { WebcamComponent } from '../../components/Webcam/Webcam';
 import { SocketContext } from '../../socket-context';
 import logo from '../../assets/swift-logo-middle.png'
+import userSettings from '../../components/UserSettings/UserSettings';
+
 // import {uuid} from '../../uuid';
 interface props {
   socket: any;
@@ -12,6 +15,7 @@ interface props {
 const Meeting = () => {
   //****************** VARIABLES ************************/
   const myVideoRef = useRef(null);
+  const history = useHistory();
   const socket  = useContext(SocketContext)
   const otherVideoRef = useRef(null);
   const [hasOtherJoined, setHasOtherJoined] = useState<boolean>(false);
@@ -20,6 +24,8 @@ const Meeting = () => {
   const [videoToggle, setVideoToggle] = useState<boolean>(true);
   const [recording, setRecording] = useState<boolean>(false);
   const [mute, setMute] = useState<boolean>(false);
+
+
   // const MediaRecorder: any = null;
   const mediaDevices = navigator.mediaDevices as any;
   let chunks: any[] = [];
@@ -59,6 +65,11 @@ const Meeting = () => {
   //****************** FUNCTIONS DECLARATION ************************/
 
     console.log('streams array', streams)
+
+    function handleProfile (){
+      history.push('/userprofile')
+
+    }
 
   function connectToNewUser(userId: string, otherPeerId: string, stream: MediaStream, peer: any) {
     console.log('this is the peer', peer)
@@ -322,19 +333,22 @@ const Meeting = () => {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#6B6B6D" d="M10.5,3.73a2,2,0,0,1,2.95-.14A2,2,0,0,1,14,5V8.41a1,1,0,0,0,2,0V5A4,4,0,0,0,9,2.47,1,1,0,1,0,10.5,3.73Zm8.22,9.54.2,0a1,1,0,0,0,1-.81A7.91,7.91,0,0,0,20,11a1,1,0,0,0-2,0,5.54,5.54,0,0,1-.11,1.1A1,1,0,0,0,18.72,13.27Zm3,6.06-18-18a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L8,8.48V11a4,4,0,0,0,6,3.46l1.46,1.46A6,6,0,0,1,6,11a1,1,0,0,0-2,0,8,8,0,0,0,7,7.93V21H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2H13V18.93a7.87,7.87,0,0,0,3.85-1.59l3.4,3.4a1,1,0,0,0,1.42-1.41ZM12,13a2,2,0,0,1-2-2v-.52l2.45,2.46A1.74,1.74,0,0,1,12,13Z"/></svg>
             : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#6B6B6D" d="M12,15a4,4,0,0,0,4-4V5A4,4,0,0,0,8,5v6A4,4,0,0,0,12,15ZM10,5a2,2,0,0,1,4,0v6a2,2,0,0,1-4,0Zm10,6a1,1,0,0,0-2,0A6,6,0,0,1,6,11a1,1,0,0,0-2,0,8,8,0,0,0,7,7.93V21H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2H13V18.93A8,8,0,0,0,20,11Z"/></svg>}
           </button>
+
+          <button className='btn-off' onClick={handleProfile}><i className="far fa-user set"></i></button>
+
       </div>
       </>
   );
 };
 
-// return (
+{/* // return (
 //   <div className="mtngcontainer">
 //     <div className="others-video-container">
-//       {
-//         streams.map((stream) => <WebcamComponent videoRef={stream} key={stream.id} />)
+//       { */}
+{/* //         streams.map((stream) => <WebcamComponent videoRef={stream} key={stream.id} />)
 //       }
-//     </div>
-
+//     </div> */}
+{/*
 //     <div className="my-video-container">
 //       <Webcam ref={myVideoRef} />
 //     </div>
@@ -359,7 +373,7 @@ const Meeting = () => {
 //     </div>
 //   </div>
 // );
-// };
+// }; */}
 
 
 export default Meeting;
