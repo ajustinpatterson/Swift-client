@@ -62,13 +62,15 @@ button:focus {
     position: fixed;
     bottom: 0;
     width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 
-  .btn-on {
+  .btn-on, .share-on {
     @include Main.miniVidBtn();
   }
 
-  .btn-off {
+  .btn-off, .share-off {
     @include Main.miniVidBtn();
   }
   .btn-off:hover,  {
@@ -108,6 +110,8 @@ button:focus {
     position: fixed;
     bottom: 0;
     width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 
   .btn-on {
@@ -152,6 +156,8 @@ button:focus {
     position: fixed;
     bottom: 0;
     width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 
   .btn-on {
@@ -182,7 +188,7 @@ button:focus {
   //   background-color: #cfcfcf;
   // }
   .share-off {
-    @include Main.respVidBtn();
+    @include Main.vidBtn();
   }
   // .share-off:hover {
   //   background-color: gray;
@@ -205,17 +211,31 @@ video {
   align-items: center;
   padding: 20px 0px;
 }
-
-.my-video-container video {
+.container {
+  margin-bottom: 50px;
+}
+.container video {
   max-width: 640px;
   max-height: 360px;
   min-width: 480px;
   min-height: 270px;
 }
 
-.others-video-container video {
-  max-width: 480px;
-  max-height: 270px;
-  min-width: 320px;
-  min-height: 180px;
+// .container video {
+//   // max-width: 480px;
+//   // max-height: 270px;
+//   // min-width: 320px;
+//   // min-height: 180px;
+// }
+
+.bird-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+img.bird-middle {
+  width: 15%;
+  margin: 47px 0;
+  border-radius: 0px;
 }
