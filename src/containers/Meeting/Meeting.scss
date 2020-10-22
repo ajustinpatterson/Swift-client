@@ -33,7 +33,7 @@ $break-large: 1200px;
     @include Main.miniVidBtn();
   }
   .btn-off:hover {
-    background-color: #cfcfcf;
+    background-color: #13b98b;
   }
   .phnbtn {
     @include Main.miniVidBtn();
@@ -45,10 +45,11 @@ $break-large: 1200px;
 
   .share-on {
     @include Main.miniVidBtn();
-    background-color: #7066ff;
+    background-color: #13b98b;
   }
   .share-on:hover {
-    background-color: #cfcfcf;
+    background-color: red;
+    // background-color: #cfcfcf;
   }
   .share-off {
     @include Main.miniVidBtn();
@@ -100,7 +101,7 @@ $break-large: 1200px;
 
   .share-on {
     @include Main.respVidBtn();
-    background-color: #7066ff;
+    background-color: #13b98b;
   }
   .share-on:hover {
     background-color: #cfcfcf;
@@ -154,11 +155,11 @@ $break-large: 1200px;
 
   .share-on {
     @include Main.vidBtn();
-    background-color: #7066ff;
+    background-color: #13b98b;
   }
-  .share-on:hover {
-    background-color: #cfcfcf;
-  }
+  // .share-on:hover {
+  //   background-color: #cfcfcf;
+  // }
   .share-off {
     @include Main.respVidBtn();
     opacity: 0.5;
