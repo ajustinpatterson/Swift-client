@@ -1,0 +1,85 @@
+@use '../../assets/MainStyles/Main' as Main;
+$break-small: 410px;
+$break-med: 850px;
+$break-large: 1200px;
+@media screen and (max-width: $break-med) {
+  .btn {
+    margin: auto 3%;
+    width: 120px;
+    align-self: center;
+    @include Main.button();
+  }
+  .btn:hover {
+    background-color: blue;
+  }
+  .photo-section {
+    display: flex;
+    margin-left: 7%;
+    .profile-photo {
+      img {
+        margin-top: 10%;
+        border-radius: 300px;
+      }
+    }
+  }
+  .photo-upload {
+    font-size: 15px;
+    margin-left: 1%;
+    padding-bottom: 3%;
+    text-align: center;
+    align-self: flex-end;
+  }
+  .settings-cntnr {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10% auto;
+  }
+  .field {
+    @include Main.text-field();
+    height: 25px;
+  }
+}
+@media screen and (min-width: $break-large) {
+  form {
+    width: 70%;
+    height: 70%;
+    margin: 10% 30%;
+  }
+  .btn {
+    margin-top: 3%;
+    width: 120px;
+    align-self: center;
+    @include Main.button();
+  }
+  .btn:hover {
+    background-color: blue;
+  }
+  .photo-section {
+    display: flex;
+    margin-left: 7%;
+    .profile-photo {
+      img {
+        margin-top: 10%;
+        border-radius: 300px;
+      }
+    }
+  }
+  .photo-upload {
+    margin-left: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+    align-self: flex-end;
+  }
+  .settings-cntnr {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 5%;
+  }
+  .field {
+    @include Main.text-field();
+    margin: 1% 0px;
+    height: 25px;
+  }
+}
