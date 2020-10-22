@@ -7,6 +7,6 @@ export const WebcamComponent = ({ videoRef }: any) => {
   console.log(webcamRef.current);
   useEffect(() => {
     (webcamRef.current! as any).video.srcObject = videoRef;
-  });
+  }, [videoRef]);
   return <Webcam ref={webcamRef}/>;
 };
